@@ -12,14 +12,20 @@ credentials = Credentials.from_service_account_info(
 )
 client = gspread.authorize(credentials)
 
-# ✅ 데이터 시트 불러오기
-try:
+# ✅ 데이터 시트 불러오기 (캐시 적용)
+@st.cache_data(ttl=600)  # 10분(600초) 동안 캐싱
+def load_sheet_data():
     worksheet = client.open_by_key("1owM9EXygtbj8EO-jYL5Lr1rixU-sT8LJ_h8k1aLnSTI").worksheet("시트4")
     rows = worksheet.get_all_values()
-    df_raw = pd.DataFrame(rows)
+    return pd.DataFrame(rows)
+
+# ✅ 불러오기 시도
+try:
+    df_raw = load_sheet_data()
 except Exception as e:
     st.error(f"❌ 구글 시트 접근 중 오류: {e}")
     st.stop()
+
 
 # ✅ 2줄 헤더 처리
 multi_header = df_raw.iloc[:2]
