@@ -14,7 +14,7 @@ client = gspread.authorize(credentials)
 
 @st.cache_data(ttl=5)
 def load_sheet_data():
-    worksheet = client.open_by_key("1owM9EXygtbj8EO-jYL5Lr1rixU-sT8LJ_h8k1aLnSTI").worksheet("시트4")
+    worksheet = client.open_by_key("1Q1RbrQJ4mipUzogBpfN6dY6TOOLxrYZPkRpvlANUAo8").worksheet("시트4")
     rows = worksheet.get_all_values()
     return pd.DataFrame(rows)
 
@@ -169,7 +169,7 @@ def render_table(title, prefix, count, user):
 # 조회 버튼
 if st.button("📥 이수율 조회하기"):
     if not name or not phone_last4:
-        st.warning(⚠️ 이름과 전화번호 뒷자리를 모두 입력해주세요.")
+        st.warning("⚠️ 이름과 전화번호 뒷자리를 모두 입력해주세요.")
         st.session_state["user"] = None
     else:
         row = data[(data["이름"] == name) & (data["전화번호뒷자리"] == phone_last4)]
@@ -267,7 +267,7 @@ if user is not None:
                 # 구글 시트에 TRUE 기록
                 signature_col_idx = data.columns.get_loc("서명") + 1
                 row_idx = user.name + 3  # df_raw 기준 실제 시트 row (헤더2줄+1부터 시작)
-                ws = client.open_by_key("1owM9EXygtbj8EO-jYL5Lr1rixU-sT8LJ_h8k1aLnSTI").worksheet("시트4")
+                ws = client.open_by_key("1Q1RbrQJ4mipUzogBpfN6dY6TOOLxrYZPkRpvlANUAo8").worksheet("시트4")
                 ws.update_cell(row_idx, signature_col_idx, "TRUE")
             
             elif st.session_state["confirm_status"] == "NO":
@@ -275,8 +275,10 @@ if user is not None:
                 # 구글 시트에 FALSE 기록
                 signature_col_idx = data.columns.get_loc("서명") + 1
                 row_idx = user.name + 3
-                ws = client.open_by_key("1owM9EXygtbj8EO-jYL5Lr1rixU-sT8LJ_h8k1aLnSTI").worksheet("시트4")
+                ws = client.open_by_key("1Q1RbrQJ4mipUzogBpfN6dY6TOOLxrYZPkRpvlANUAo8").worksheet("시트4")
                 ws.update_cell(row_idx, signature_col_idx, "FALSE")
     
     
     
+
+
