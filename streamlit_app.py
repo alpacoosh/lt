@@ -257,8 +257,8 @@ if user is not None:
             st.markdown("""
                         <div style="background-color:#e8f0fe; color:#174ea6; padding:16px 18px; border-radius:8px; font-size:1.03rem; font-weight:500; margin-bottom:8px;">
                         ※ 본 확인은 서명과 동일한 효력을 가지며 수정이 불가합니다!<br>
-                        이수 확인 후 변동 불가합니다.<br>
-                        이수 사항에 대한 정확한 확인 부탁 드립니다.
+                        ※ 이수 확인 후 변동 불가합니다.<br>
+                        ※ 이수 사항에 대한 정확한 확인 부탁 드립니다.
                         </div>
                         """, unsafe_allow_html=True)
 
