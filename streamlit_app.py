@@ -14,7 +14,7 @@ client = gspread.authorize(credentials)
 
 @st.cache_data(ttl=5)
 def load_sheet_data():
-    worksheet = client.open_by_key("1Q1RbrQJ4mipUzogBpfN6dY6TOOLxrYZPkRpvlANUAo8").worksheet("시트4")
+    worksheet = client.open_by_key("1owM9EXygtbj8EO-jYL5Lr1rixU-sT8LJ_h8k1aLnSTI").worksheet("시트4")
     rows = worksheet.get_all_values()
     return pd.DataFrame(rows)
 
@@ -267,7 +267,7 @@ if user is not None:
                 # 구글 시트에 TRUE 기록
                 signature_col_idx = data.columns.get_loc("서명") + 1
                 row_idx = user.name + 3  # df_raw 기준 실제 시트 row (헤더2줄+1부터 시작)
-                ws = client.open_by_key("1Q1RbrQJ4mipUzogBpfN6dY6TOOLxrYZPkRpvlANUAo8").worksheet("시트4")
+                ws = client.open_by_key("1owM9EXygtbj8EO-jYL5Lr1rixU-sT8LJ_h8k1aLnSTI").worksheet("시트4")
                 ws.update_cell(row_idx, signature_col_idx, "TRUE")
             
             elif st.session_state["confirm_status"] == "NO":
@@ -275,7 +275,7 @@ if user is not None:
                 # 구글 시트에 FALSE 기록
                 signature_col_idx = data.columns.get_loc("서명") + 1
                 row_idx = user.name + 3
-                ws = client.open_by_key("1Q1RbrQJ4mipUzogBpfN6dY6TOOLxrYZPkRpvlANUAo8").worksheet("시트4")
+                ws = client.open_by_key("1owM9EXygtbj8EO-jYL5Lr1rixU-sT8LJ_h8k1aLnSTI").worksheet("시트4")
                 ws.update_cell(row_idx, signature_col_idx, "FALSE")
     
     
