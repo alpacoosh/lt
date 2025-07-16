@@ -253,7 +253,15 @@ if user is not None:
                     st.session_state["agree_clicked"] = True
 
         if st.session_state["agree_clicked"]:
-            st.info("※ 본 확인은 서명과 동일한 효력을 가지며 수정이 불가합니다!\n이수 확인 후 변동 불가합니다.\n이수 사항에 대한 정확한 확인 부탁 드립니다. ")
+            # st.info("※ 본 확인은 서명과 동일한 효력을 가지며 수정이 불가합니다!\n이수 확인 후 변동 불가합니다.\n이수 사항에 대한 정확한 확인 부탁 드립니다. ")
+            st.markdown("""
+                        <div style="background-color:#e8f0fe; color:#174ea6; padding:16px 18px; border-radius:8px; font-size:1.03rem; font-weight:500; margin-bottom:8px;">
+                        ※ 본 확인은 서명과 동일한 효력을 가지며 수정이 불가합니다!<br>
+                        이수 확인 후 변동 불가합니다.<br>
+                        이수 사항에 대한 정확한 확인 부탁 드립니다.
+                        </div>
+                        """, unsafe_allow_html=True)
+
             r1, r2, r3 = st.columns([8, 1, 1])
             with r2:
                 if st.button("YES", key="yes_btn"):
