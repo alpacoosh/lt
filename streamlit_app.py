@@ -253,7 +253,9 @@ if user is not None:
                     st.session_state["agree_clicked"] = True
 
         if st.session_state["agree_clicked"]:
-            st.info("이수 내역에 이의 없음을 확인합니다.")
+            st.info("※ 본 확인은 서명과 동일한 효력을 가지며 수정이 불가합니다!   
+   이수 확인 후 변동 불가합니다.
+   이수 사항에 대한 정확한 확인 부탁 드립니다. ")
             r1, r2, r3 = st.columns([8, 1, 1])
             with r2:
                 if st.button("YES", key="yes_btn"):
