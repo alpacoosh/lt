@@ -233,7 +233,7 @@ if user is not None:
 
     st.markdown(f"""
         <div style="border-top:1px solid #ccc; margin-top:2rem; padding-top:1rem; font-weight:600; font-size:1.1rem; text-align:center;">
-            총 이수율<br>
+            총 이수차시<br>
             <p style="font-size:0.9rem;">*사전워크숍과 컨퍼런스를 제외한 32차시만 합산됩니다.</p>
             {completed_sessions:02d}차시 / 32차시
         </div>
